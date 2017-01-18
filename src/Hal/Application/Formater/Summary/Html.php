@@ -69,8 +69,8 @@ class Html implements FormaterInterface {
     /**
      * @inheritdoc
      */
-    public function terminate(ResultCollection $collection, ResultCollection $groupedResults){
-        \Twig_Autoloader::register();
+    public function terminate(ResultCollection $collection, ResultCollection $groupedResults)
+    {
         $loader = new \Twig_Loader_Filesystem(__DIR__.'/../../../../../templates/html');
         $twig = new \Twig_Environment($loader, array('cache' => false));
         $twig->addExtension(new FormatingExtension($this->validator));
